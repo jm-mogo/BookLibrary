@@ -17,7 +17,7 @@
 }
 
 .btn {
-    padding: 22px;
+    padding: 32px;
     display: flex;
     justify-content: center;
 }
@@ -33,4 +33,46 @@
 
 .btn button:hover {
     background-color: #cfdbe4;
+}
+
+.container {
+    width: 80vw;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+}
+
+.card {
+    min-width: 35vh;
+    height: 340px;
+    background-image: linear-gradient(145deg, #2185D5, #85bfee);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h3,
+.card button {
+    font-size: 28px;
+    color: #e1e8ee;
+    font-weight: 300;
+    padding: 5px;
+}
+
+.card hr {
+    width: 80%;
+    border: 1px dashed rgb(184, 224, 229);
+}
+
+.card button {
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
