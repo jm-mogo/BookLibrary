@@ -94,6 +94,11 @@ input[type='number'] {
 
 /**************************/
 
+.modal h3 {
+    color: #e1e8ee;
+    font-size: 24px;
+}
+
 .modal {
     position: fixed;
     z-index: 1;
@@ -113,15 +118,13 @@ input[type='number'] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #85bfee;
+    background-image: linear-gradient(145deg, #254799, #2889d9);
     padding: 25px;
     border-radius: 20px;
 }
 
 .add-book-form button {
     width: 100%;
-    border-radius: 20px;
-    border: solid 1px #0d4471;
 }
 
 .error-msg {
@@ -146,6 +149,8 @@ input[type='number'] {
     display: flex;
     padding: 12px;
     align-items: center;
+    color: #e1e8ee;
+    font-size: 18px;
 }
 
 .checkbox {
@@ -153,6 +158,15 @@ input[type='number'] {
     height: 20px;
     margin-top: 4px;
     accent-color: white;
+}
+
+.btn-light-blue {
+    padding: 18px;
+    color: #e1e8ee;
+    background-color: #0d385b;
+    border-radius: 20px;
+    font-size: 22px;
+    border: none;
 }
 
 .overlay {
