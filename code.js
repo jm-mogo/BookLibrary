@@ -2,6 +2,7 @@ const container = document.getElementById('container');
 const btnAddBook = document.getElementById('addBookBtn')
 const modal = document.getElementById('addBookModal');
 const overlay = document.getElementById('overlay');
+const formBook = document.getElementById('addBookForm')
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -43,5 +44,9 @@ function addBookToLibrary() {
 
 }
 
+function hello(event) {
+    event.preventDefault()
+}
 
 btnAddBook.addEventListener('click', addBookForm);
+formBook.addEventListener('submit', hello)
