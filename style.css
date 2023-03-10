@@ -51,17 +51,17 @@ input[type='number'] {
 }
 
 .container {
-    width: 80vw;
-    max-width: 1200px;
+    width: 90vw;
     margin: auto;
     display: flex;
-    gap: 5vh;
+    gap: 6vh;
     flex-wrap: wrap;
     margin-bottom: 64px;
 }
 
 .card {
-    min-width: 35vh;
+    min-width:200px;
+    width: 20vw;
     height: 340px;
     background-image: linear-gradient(145deg, #2185D5, #85bfee);
     border-radius: 12px;
@@ -71,8 +71,7 @@ input[type='number'] {
     justify-content: center;
 }
 
-.card h3,
-.card button {
+.card h3 {
     font-size: 28px;
     color: #e1e8ee;
     font-weight: 300;
@@ -80,16 +79,18 @@ input[type='number'] {
     margin-bottom: 26px;
 }
 
-.card hr {
-    width: 80%;
-}
-
 .card button {
+    color: #e1e8ee;
     font-weight: bold;
-    background: none;
-    border: none;
+    font-size: 28px;
+    border: solid;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
+    border-radius: 8px;
+    background-clip: text;
+    background: -webkit-linear-gradient(#f03939, #421515);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
 }
 
 /**************************/
@@ -160,13 +161,22 @@ input[type='number'] {
     accent-color: white;
 }
 
-.btn-light-blue {
+.btn-light-blue,
+.btn-light-red {
     padding: 18px;
     color: #e1e8ee;
-    background-color: #0d385b;
     border-radius: 20px;
     font-size: 22px;
     border: none;
+}
+
+.btn-light-blue {
+    background-color: #0d385b;
+}
+
+.btn-light-red {
+    margin-top: 1rem;
+    background-color: #8d1111;
 }
 
 .overlay {
