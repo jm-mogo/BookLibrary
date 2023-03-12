@@ -7,11 +7,13 @@ const btnClose = document.getElementById('btn-close');
 
 const formBookTitle = document.getElementById('title');
 const formBookAuthor = document.getElementById('author');
-const formBookPages = document.getElementById('pages')
+const formBookPages = document.getElementById('pages');
+const formBookIsRead = document.getElementById('is-read')
 
 let title;
 let author;
 let pages;
+let isRead;
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -20,10 +22,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-const harryPotter = new Book('Harry potter', 'elena', 200, true);
-const blackList = new Book('Black List', 'Ben', 150, false)
-
-let library = [harryPotter, blackList, harryPotter, blackList];
+let library = [];
 
 function addBookForm() {
     modal.classList.add('active');
@@ -45,17 +44,21 @@ function createCard() {
         let titleH3 = document.createElement('h3');
         let authorH3 = document.createElement('h3');
         let pagesH3 = document.createElement('h3');
-        let readH3 = document.createElement('h3');
+        let btnRead = document.createElement('button');
         let btnRemove = document.createElement('button');
 
         titleH3.textContent = library[i].title;
         authorH3.textContent = library[i].author;
         pagesH3.textContent = library[i].pages;
-        readH3.textContent = library[i].read;
+        btnRead.textContent = (library[i].read) ? 'read' : 'not read';
         btnRemove.textContent = 'Remove';
+
         btnRemove.setAttribute('onclick', `removeCard(${newId});`);
+        btnRemove.classList.add('btn-remove')
+        btnRead.setAttribute('onclick', `changeRead(${newId});`)
+        btnRead.classList.add((library[i].read) ? 'btn-read' : 'btn-no-read')
         
-        newCard.append(titleH3, authorH3, pagesH3, readH3, btnRemove);
+        newCard.append(titleH3, authorH3, pagesH3, btnRead, btnRemove);
         cards.push(newCard); 
     }
     
@@ -69,12 +72,23 @@ function removeCard(id) {
     createCard()
 }
 
+function changeRead(id) {
+    if (library[id].read == true) {
+        library[id].read = false;
+        createCard()
+        return
+    }
+    library[id].read = true
+    createCard();
+}
+
 function addBookToLibrary() { 
     title = formBookTitle.value;
     author = formBookAuthor.value;
     pages = formBookPages.value;
+    isRead = formBookIsRead.checked;
 
-    let book = new Book(title, author, pages);
+    let book = new Book(title, author, pages, isRead);
     library.push(book)
 }
 
@@ -85,6 +99,7 @@ function getFormData() {
     formBookTitle.value = '';
     formBookAuthor.value = '';
     formBookPages.value = '';
+    formBookIsRead.checked = false;
     
     closeModal()
 }

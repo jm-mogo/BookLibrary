@@ -75,11 +75,32 @@ input[type='number'] {
     font-size: 28px;
     color: #e1e8ee;
     font-weight: 300;
-    padding: 5px;
-    margin-bottom: 26px;
+    margin: 12px 0px 12px 0px;
 }
 
-.card button {
+.btn-read,
+.btn-no-read {
+    width: 180px;
+    font-size: 28px;
+    font-weight: 300;
+    padding: 5px;
+    margin: 12px 0px 12px 0px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: none;
+    border-radius: 8px;
+    background-clip: text;
+}
+
+.btn-read {
+    background: -webkit-linear-gradient(#c1dae4, #484783);
+}
+
+.btn-no-read {
+    background: -webkit-linear-gradient(#f03939, #421515);
+}
+
+.btn-remove {
     color: #e1e8ee;
     font-weight: bold;
     font-size: 28px;
