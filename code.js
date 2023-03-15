@@ -88,8 +88,17 @@ function addBookToLibrary() {
     pages = formBookPages.value;
     isRead = formBookIsRead.checked;
 
-    let book = new Book(title, author, pages, isRead);
-    library.push(book)
+    
+    if (checkBookInLibrary(title)) {
+        let book = new Book(title, author, pages, isRead);
+        library.push(book)
+    } else {
+        alert("Book in library")
+    }
+}
+
+function checkBookInLibrary(title) {
+     return library.every(book => book.title !== title);
 }
 
 function getFormData() {
