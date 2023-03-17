@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-const btnAddBook = document.getElementById('addBookBtn')
+const btnAddBook = document.getElementById('addBookBtn');
 const modal = document.getElementById('addBookModal');
 const overlay = document.getElementById('overlay');
 const formBook = document.getElementById('addBookForm');
@@ -8,7 +8,7 @@ const btnClose = document.getElementById('btn-close');
 const formBookTitle = document.getElementById('title');
 const formBookAuthor = document.getElementById('author');
 const formBookPages = document.getElementById('pages');
-const formBookIsRead = document.getElementById('is-read')
+const formBookIsRead = document.getElementById('is-read');
 
 let title;
 let author;
@@ -30,9 +30,9 @@ function addBookForm() {
 }
 
 function createCard() {  
-    container.innerHTML = ''
+    container.innerHTML = '';
 
-    let cards = []
+    let cards = [];
 
 
     for (let i = 0; i < library.length ; i++) {
@@ -54,9 +54,9 @@ function createCard() {
         btnRemove.textContent = 'Remove';
 
         btnRemove.setAttribute('onclick', `removeCard(${newId});`);
-        btnRemove.classList.add('btn-remove')
-        btnRead.setAttribute('onclick', `changeRead(${newId});`)
-        btnRead.classList.add((library[i].read) ? 'btn-read' : 'btn-no-read')
+        btnRemove.classList.add('btn-remove');
+        btnRead.setAttribute('onclick', `changeRead(${newId});`);
+        btnRead.classList.add((library[i].read) ? 'btn-read' : 'btn-no-read');
         
         newCard.append(titleH3, authorH3, pagesH3, btnRead, btnRemove);
         cards.push(newCard); 
@@ -69,16 +69,16 @@ function createCard() {
 
 function removeCard(id) {
     library.splice(id, 1);
-    createCard()
+    createCard();
 }
 
 function changeRead(id) {
     if (library[id].read == true) {
         library[id].read = false;
-        createCard()
-        return
+        createCard();
+        return;
     }
-    library[id].read = true
+    library[id].read = true;
     createCard();
 }
 
@@ -91,14 +91,14 @@ function addBookToLibrary() {
     
     if (checkBookInLibrary(title)) {
         let book = new Book(title, author, pages, isRead);
-        library.push(book)
+        library.push(book);
     } else {
-        alert("Book in library")
+        alert("Book in library");
     }
 }
 
 function checkBookInLibrary(title) {
-     return library.every(book => book.title !== title);
+    return library.every(book => book.title !== title);
 }
 
 function getFormData() {
@@ -110,7 +110,7 @@ function getFormData() {
     formBookPages.value = '';
     formBookIsRead.checked = false;
     
-    closeModal()
+    closeModal();
 }
 
 function closeModal() {
@@ -126,4 +126,5 @@ btnClose.addEventListener('click', () => {
     modal.classList.remove('active');
     overlay.classList.remove('active');
 })
-createCard()
+
+createCard();
